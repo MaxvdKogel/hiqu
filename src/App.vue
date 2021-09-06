@@ -1,32 +1,25 @@
 import Header from "./components/Header.vue";
 
 <template>
-  <Header />
-  <landingPage />
-  <fullscreenImg />
-  <popularProducts />
-  <newsletter />
-  <Footer />
+    <div id="app">
+        <Header />
+        <Menu />
+    </div>
+    <router-view />
 </template>
 
 <script>
-import Header from "@/components/Header";
-import landingPage from "@/components/Landing-page";
-import fullscreenImg from "@/components/FullscreenImg";
-import popularProducts from "@/components/PopularProducts"
-import newsletter from "@/components/Newsletter"
-import Footer from "@/components/Footer"
+import Header from "@/components/Header.vue";
+import Menu from "@/components/Menu.vue";
 
 export default {
-  name: "App",
-  components: {
-    Header,
-    landingPage,
-    fullscreenImg,
-    popularProducts,
-    newsletter,
-    Footer
-  }
+    name: "App",
+    components: {
+        Header,
+        Menu
+    },
+    methods: {
+    }
 };
 </script>
 

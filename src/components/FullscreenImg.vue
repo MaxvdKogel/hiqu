@@ -1,7 +1,7 @@
 <template>
     <div class="imgPlaceholder"> </div>
     <div class="imgDiv">
-        <img class="img" src="../../public/assets/img/fullscreenImg.jpg" alt="">
+        <img class="img" src="../../public/assets/img/poop.jpg" alt="">
     </div>
 </template>
 

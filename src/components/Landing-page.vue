@@ -3,13 +3,13 @@
         <div class="container landingPage__container">
             <div class="images">
                 <div class="img1">
-                    <img class="img" src="assets/img/kamer1.jpg" alt="">
+                    <img class="img" ref="img1" src="assets/img/kamer1.jpg" alt="">
                 </div>  
                 <div class="img2">
-                    <img class="img" src="assets/img/kamer2.jpg" alt="">
+                    <img class="img" ref="img2" src="assets/img/kamer2.jpg" alt="">
                 </div>
                 <div class="img3">
-                    <img class="img" src="assets/img/kamer3.jpg" alt="">
+                    <img class="img" ref="img3" src="assets/img/kamer3.jpg" alt="">
                 </div>
             </div>
             <div class="txt">
@@ -28,10 +28,23 @@
 </template>
 
 <script>
+import gsap from 'gsap';
 
 export default ({
-    name: "landingPage"
-})
+    name: "landingPage",
+    mounted() {
+        let tl = gsap.timeline({
+            defaults: {
+                ease: "power2"
+            }
+        });
+        
+        tl
+        .from(this.$refs.img1, { height: 0, duration: .75})
+        .from(this.$refs.img2, { height: 0, duration: .75}, "-=0.25")
+        .from(this.$refs.img3, { height: 0, duration: .75}, "-=0.25");
+    }
+});
 
 </script>
 
@@ -57,6 +70,11 @@ export default ({
         position: relative;
         height: 44vh;
         top: 10vh;
+    }
+
+    .img {
+        position: absolute;
+        bottom: 0;
     }
 
     .img1, .img2, .img3 {

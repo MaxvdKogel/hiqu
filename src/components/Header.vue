@@ -3,7 +3,7 @@
         <div class="container header__container">
             <div class="nav">
                 <p class="logo fino">Hiqu</p>
-                <div class="hamburger">
+                <div class="hamburger" :class="{'active' : isBurgerActive }" @click.prevent="toggle">
                     <div class="topLine"></div>
                     <div class="bottomLine"></div>
                 </div>
@@ -13,9 +13,18 @@
 </template>
 
 <script>
-    export default {
-        name: "Header"
-    };
+    export default ({
+        name: "Header",
+        data: () => ({
+            isBurgerActive: false
+        }),
+        methods: {
+            toggle() {
+                this.isBurgerActive = !this.isBurgerActive;
+                this.$store.state.isMenuActive = this.isBurgerActive;
+            }
+        }
+    });
 </script>
 
 <style scoped>
@@ -38,7 +47,7 @@ header {
 .hamburger {
   position: relative;
   width: 35px;
-  height: 12px;
+  height: 13px;
   cursor: pointer;
 }
 
@@ -47,6 +56,7 @@ header {
   width: 100%;
   height: 1px;
   background-color: var(--text);
+  transition: all .3s ease;
 }
 
 .topLine {
@@ -57,8 +67,21 @@ header {
   bottom: 0;
 }
 
-@media screen and (min-width: 600px) {
+.hamburger.active .topLine{
+    transform: rotate(-45deg);
+    top: 6px;
+}
 
+.hamburger.active .bottomLine{
+    transform: rotate(45deg);
+    bottom: 6px;
+}
+
+@media screen and (min-width: 600px) {
+    .hamburger {
+        height: 14px;
+    }
+    
   .topLine, .bottomLine {
     height: 2px;
   }
