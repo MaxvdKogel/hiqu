@@ -74,6 +74,11 @@ export default ({
     justify-content: space-between;
 }
 
+
+.link + .link {
+    margin-top: 1em;
+}
+
 .link, .social-link {
     cursor: pointer;
 }
@@ -143,10 +148,6 @@ svg {
 @media screen and (min-width: 600px) {
     .container {
         height: 50vh;
-    }
-    
-    .link + .link {
-        margin-top: 1em;
     }
 
     svg {

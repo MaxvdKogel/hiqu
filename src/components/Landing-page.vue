@@ -3,24 +3,24 @@
         <div class="container landingPage__container">
             <div class="images">
                 <div class="img1">
-                    <img class="img" ref="img1" src="assets/img/kamer1.jpg" alt="">
+                    <img class="img-up img" ref="img1" src="assets/img/kamer1.jpg" alt="">
                 </div>  
                 <div class="img2">
-                    <img class="img" ref="img2" src="assets/img/kamer2.jpg" alt="">
+                    <img class="img-up img" ref="img2" src="assets/img/kamer2.jpg" alt="">
                 </div>
                 <div class="img3">
-                    <img class="img" ref="img3" src="assets/img/kamer3.jpg" alt="">
+                    <img class="img-up img" ref="img3" src="assets/img/kamer3.jpg" alt="">
                 </div>
             </div>
             <div class="txt">
-                <h1 class="title fino">Quality interiors that make you <br> feel at home.</h1>
-                <p class="p bilo intro">
+                <h1 class="title fino anim">Quality interiors that make you <br> feel at home.</h1>
+                <p class="p bilo intro anim">
                     Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit. <br> Pellentesque blandit
                     fermentum sapien non fringilla.
                 </p>
-                <div class="cta fino">
-                    <p class="ctaTxt">products</p>
+                <div class="cta fino anim">
+                    <p class="ctaTxt" ref="ctaTxt">products</p>
                 </div>
             </div>
         </div>
@@ -29,20 +29,22 @@
 
 <script>
 import gsap from 'gsap';
+let tl = gsap.timeline({
+    defaults: {
+        ease: "power2"
+    },
+    onComplete: () => {
+        console.log("done");
+    }
+});
 
 export default ({
     name: "landingPage",
     mounted() {
-        let tl = gsap.timeline({
-            defaults: {
-                ease: "power2"
-            }
-        });
-        
         tl
-        .from(this.$refs.img1, { height: 0, duration: .75})
-        .from(this.$refs.img2, { height: 0, duration: .75}, "-=0.25")
-        .from(this.$refs.img3, { height: 0, duration: .75}, "-=0.25");
+            .from(".img-up", { height: 0, duration: 1, stagger: 0.2, clearProps: "height" })
+            .from(".anim", {opacity: 0, y: 50, duration: .75, stagger: 0.15 }, "-=1")
+            .from(this.$refs.ctaTxt, { opacity: 0, duration: .3 }, "-=0.45");
     }
 });
 

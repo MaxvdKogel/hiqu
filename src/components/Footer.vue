@@ -15,7 +15,7 @@
                     </div>
                     <div class="developer">
                         <p>Developed by</p>
-                        <p class="link stonks">Stonks Agency</p>
+                        <a class="link stonks" :href="'https://stonks.agency/'" target="_blank">Stonks Agency</a>
                     </div>
                 </div>
         </div>
@@ -103,7 +103,7 @@ export default ({
             align-items:center
         }
 
-        p {
+        a {
             margin-left: 5px;
         }
     }
