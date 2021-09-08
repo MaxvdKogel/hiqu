@@ -2,8 +2,8 @@
     <header>
         <div class="container header__container">
             <div class="nav">
-                <p class="logo fino">Hiqu</p>
-                <div class="hamburger" :class="{'active' : isBurgerActive }" @click.prevent="toggle">
+                <p class="logo fino opacity">Hiqu</p>
+                <div class="hamburger opacity" :class="{'active' : isBurgerActive }" @click.prevent="toggle">
                     <div class="topLine"></div>
                     <div class="bottomLine"></div>
                 </div>
@@ -13,11 +13,24 @@
 </template>
 
 <script>
+    import gsap from 'gsap';
+    let tl = gsap.timeline({
+        defaults: {
+            ease: "power2"
+        }
+    });
+
     export default ({
         name: "Header",
         data: () => ({
             isBurgerActive: false
         }),
+        mounted() {
+            tl.from(".opacity", {
+                opacity: 0,
+                duration: 1
+            }, "+=0.75")
+        },
         methods: {
             toggle() {
                 this.isBurgerActive = !this.isBurgerActive;

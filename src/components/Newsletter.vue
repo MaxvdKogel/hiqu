@@ -3,12 +3,12 @@
         <div class="bg" :style="{'--remaining': remainingSpace}">
             <div class="form">
                 <div class="inner">
-                    <h2 class="title">Newsletter</h2>
-                    <p class="p">Subscribe to our newsletter and get a 10% discount!</p>
+                    <h2 class="title hidden">Newsletter</h2>
+                    <p class="p hidden">Subscribe to our newsletter and get a 10% discount!</p>
                     <form>
-                        <input type="text" placeholder="Email address">
+                        <input type="text" class="hidden" placeholder="Email address">
                     </form>
-                    <div class="cta">
+                    <div class="cta hidden">
                         <p class="ctaTxt">Subscribe</p>
                     </div>
                 </div>

@@ -2,24 +2,24 @@
     <div class="landingPage">
         <div class="container landingPage__container">
             <div class="images">
-                <div class="img1">
-                    <img class="img-up img" ref="img1" src="assets/img/kamer1.jpg" alt="">
+                <div class="img1 parallax" data-rate="-0.05">
+                    <img class="img-up img" src="assets/img/kamer1.jpg" alt="">
                 </div>  
-                <div class="img2">
-                    <img class="img-up img" ref="img2" src="assets/img/kamer2.jpg" alt="">
+                <div class="img2 parallax" data-rate=".1">
+                    <img class="img-up img" src="assets/img/kamer2.jpg" alt="">
                 </div>
-                <div class="img3">
-                    <img class="img-up img" ref="img3" src="assets/img/kamer3.jpg" alt="">
+                <div class="img3 parallax" data-rate=".01">
+                    <img class="img-up img" src="assets/img/kamer3.jpg" alt="">
                 </div>
             </div>
             <div class="txt">
-                <h1 class="title fino anim">Quality interiors that make you <br> feel at home.</h1>
-                <p class="p bilo intro anim">
+                <h1 class="title fino anim parallax" data-rate="0">Quality interiors that make you <br> feel at home.</h1>
+                <p class="p bilo intro anim parallax" data-rate="0">
                     Lorem ipsum dolor sit amet, consectetur
                     adipiscing elit. <br> Pellentesque blandit
                     fermentum sapien non fringilla.
                 </p>
-                <div class="cta fino anim">
+                <div class="cta fino anim parallax" data-rate="0">
                     <p class="ctaTxt" ref="ctaTxt">products</p>
                 </div>
             </div>
@@ -32,19 +32,34 @@ import gsap from 'gsap';
 let tl = gsap.timeline({
     defaults: {
         ease: "power2"
-    },
-    onComplete: () => {
-        console.log("done");
     }
 });
 
 export default ({
     name: "landingPage",
+    data: () => ({
+        scrolled: 0
+    }),
     mounted() {
         tl
             .from(".img-up", { height: 0, duration: 1, stagger: 0.2, clearProps: "height" })
             .from(".anim", {opacity: 0, y: 50, duration: .75, stagger: 0.15 }, "-=1")
             .from(this.$refs.ctaTxt, { opacity: 0, duration: .3 }, "-=0.45");
+
+            window.addEventListener('scroll', this.parallax);
+    },
+    unmounted() {
+        window.removeEventListener('scroll', this.parallax);
+    },
+    methods: {
+        parallax() {
+            this.scrolled = window.pageYOffset;
+            const parallaxElement = document.querySelectorAll('.parallax');
+            for(var i = 0; i < parallaxElement.length; i++) {
+                var pos = this.scrolled * parallaxElement[i].dataset.rate;
+                parallaxElement[i].style.transform = 'translateY('+ pos +'px)';
+            }
+        }
     }
 });
 

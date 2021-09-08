@@ -1,7 +1,7 @@
 <template>
     <div class="bg">
         <div class="container">
-            <h2 class="fino title">Popular products</h2>
+            <h2 class="fino title hidden">Popular products</h2>
             <div class="products">
                 <div class="product">
                     <img class="img" src="assets/img/products/couch.jpg" alt="couch">

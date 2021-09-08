@@ -12,13 +12,37 @@ import Header from "./components/Header.vue";
 import Header from "@/components/Header.vue";
 import Menu from "@/components/Menu.vue";
 
+import gsap from 'gsap';
+
 export default {
     name: "App",
     components: {
         Header,
         Menu
     },
+    mounted() {
+        window.addEventListener('scroll', this.inViewport);
+    },
+    unmounted() {
+        window.removeEventListener('scroll', this.inViewport);
+    },
     methods: {
+        inViewport() {
+            var el = document.querySelectorAll(".hidden");
+            for(var i = 0; i < el.length; i++) {
+                if(el[i].getBoundingClientRect().top - (window.innerHeight * 0.75) < 0) {
+
+                    el[i].classList.remove("hidden");
+
+                    gsap.from(el[i], {
+                        opacity: 0,
+                        y: 50,
+                        duration: .5
+                    })
+                    
+                }
+            }
+        }
     }
 };
 </script>
@@ -50,6 +74,14 @@ html, body {
 
 .bilo {
   font-family: "bilo", sans-serif;
+}
+
+.hidden {
+    opacity: 0;
+}
+
+.visible {
+    opacity: 1;
 }
 
 a {
