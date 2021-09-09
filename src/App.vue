@@ -68,6 +68,10 @@ html, body {
   box-sizing: border-box;
 }
 
+.disabled {
+    pointer-events: none;
+}
+
 .fino {
   font-family: "fino-sans", serif;
 }
