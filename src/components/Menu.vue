@@ -60,12 +60,12 @@ export default ({
             if (this.animIsRunning == false) {
 
                 if(this.isMenuActive) {
+                    document.querySelector('.menuImg').classList.remove("hide");
                     document.querySelector('.menuImgDiv').classList.remove("hide");
 
                     this.animIsRunning = !this.animIsRunning;
             
                     console.log(this.animIsRunning);
-                    document.querySelector('.menuImgDiv').classList.remove("up");
                     
                     document.querySelector('.menuImgDiv').classList.add("height");
                     document.querySelector('.hamburger').style.pointerEvents = "none";
@@ -85,18 +85,18 @@ export default ({
                     this.animIsRunning = !this.animIsRunning;
                     document.querySelector('.hamburger').style.pointerEvents = "none";
 
-                    document.querySelector('.menuImgDiv').classList.add("up");
+                    document.querySelector('.menuImgDiv').classList.remove("height");
                     
                     tl
                         .to(".social-link", {opacity: 0, y: -50, duration: .5, ease: "power2.in"})
-                        .to(".menuImg", { height: 0, duration: 1, ease: "power2.in"}, "-=1")
+                        .to(".menuImg", { height: 0, duration: 1, ease: "power2.in",
+                            onComplete: () => {
+                                document.querySelector('.menuImg').classList.add("hide");
+                                gsap.to(".menuImg", { clearProps: "height" }) }}, "-=1")
                         .to("h2.link", { opacity: 0, y: -75, duration: .75, stagger: -.2, ease: "power2.in" }, "-=.5")
                         .to(".menu", { height: 0, duration: .5, ease: "power2.in",
-                        onComplete: () => {
-                            document.querySelector('.menuImgDiv').classList.remove("height");
-                            document.querySelector('.menuImgDiv').classList.remove("up");
-                            document.querySelector('.menuImgDiv').classList.add("hide");
-                            gsap.to(".menuImg", { clearProps: "height" })
+                            onComplete: () => {
+                            // document.querySelector('.menuImgDiv').classList.remove("height");
                             this.animIsRunning = !this.animIsRunning;
                             document.querySelector('.hamburger').style.pointerEvents = "auto"
                         }});
@@ -208,6 +208,7 @@ svg {
     background-color: var(--background-light);
     z-index: -1;
     transform: translate(5vw, -5vw);
+    transition: .75s ease-in;
 }
 
 .height::after {
@@ -215,11 +216,6 @@ svg {
     transition: height .75s ease-out;
     /* transition-delay: .75s; */
     transition-delay: .75s
-}
-
-.up::after {
-    height: 0;
-    transition: .75s ease-in;
 }
 
 @media screen and (min-width: 600px) {
