@@ -2,9 +2,12 @@
     <div class="menu">
         <div class="container" ref="menuContainer">
             <div class="links">
-                <h2 class="title link home hide">Home</h2>
+                <!-- <h2 class="title link home hide">Home</h2>
                 <h2 class="title link hide">Products</h2>
-                <h2 class="title link hide">About us</h2>
+                <h2 class="title link hide">About us</h2> -->
+                <router-link to="/" exact class="title link hide menu-link home" @click="closeMenu()">Home</router-link>
+                <router-link to="/products" exact class="title link hide menu-link" @click="closeMenu()">Products</router-link>
+                <router-link to="/about" exact class="title link hide menu-link" @click="closeMenu()">About us</router-link>
                 <div class="social-links">
                     <div class="insta social-link hide">
                         <svg id="insta" xmlns="http://www.w3.org/2000/svg" width="16.8" height="16.8" viewBox="0 0 14 14">
@@ -48,11 +51,6 @@ export default ({
     }),
     watch: {
         '$store.state.isMenuActive' : function() {
-            // if(this.animIsRunning) {
-            //     document.querySelector('.hamburger').classList.add('disabled');
-            // } else {
-            //     document.querySelector('.hamburger').classList.remove('disabled');
-            // }
 
             const menu = document.querySelector(".menu");
             menu.classList.toggle("menu-active");
@@ -65,44 +63,46 @@ export default ({
 
                     this.animIsRunning = !this.animIsRunning;
             
-                    console.log(this.animIsRunning);
-                    
                     document.querySelector('.menuImgDiv').classList.add("height");
                     document.querySelector('.hamburger').style.pointerEvents = "none";
 
                     tl
                         .to(".menu", { height: window.innerHeight, duration: .5, ease: "power2.out" })
-                        .fromTo("h2.link", { opacity: 0, y: 75 }, { opacity: 1, y: 0, duration: .75, stagger: .2, ease: "power2" })
+                        .fromTo("a.menu-link", { opacity: 0, y: 75 }, { opacity: 1, y: 0, duration: .75, stagger: .2, ease: "power2" })
                         .from(".menuImg", { height: 0, duration: 1, ease: "power2"}, "-=1")
                         .fromTo(".social-link", {opacity: 0, y: 50},{ opacity: 1, y: 0, duration: .5, ease: "power2", 
                         onComplete: () => {
                             this.animIsRunning = !this.animIsRunning;
-                            console.log(this.animIsRunning);
                             document.querySelector('.hamburger').style.pointerEvents = "auto";
                         }}, "-=.5")
 
                 } else {
-                    this.animIsRunning = !this.animIsRunning;
-                    document.querySelector('.hamburger').style.pointerEvents = "none";
-
-                    document.querySelector('.menuImgDiv').classList.remove("height");
-                    
-                    tl
-                        .to(".social-link", {opacity: 0, y: -50, duration: .5, ease: "power2.in"})
-                        .to(".menuImg", { height: 0, duration: 1, ease: "power2.in",
-                            onComplete: () => {
-                                document.querySelector('.menuImg').classList.add("hide");
-                                gsap.to(".menuImg", { clearProps: "height" }) }}, "-=1")
-                        .to("h2.link", { opacity: 0, y: -75, duration: .75, stagger: -.2, ease: "power2.in" }, "-=.5")
-                        .to(".menu", { height: 0, duration: .5, ease: "power2.in",
-                            onComplete: () => {
-                            // document.querySelector('.menuImgDiv').classList.remove("height");
-                            this.animIsRunning = !this.animIsRunning;
-                            document.querySelector('.hamburger').style.pointerEvents = "auto"
-                        }});
-
+                    this.closeMenu();
                 }    
             }
+        }
+    },
+    methods: {
+        closeMenu() {
+            this.animIsRunning = !this.animIsRunning;
+            document.querySelector('.hamburger').style.pointerEvents = "none";
+            document.querySelector('.hamburger').classList.remove('active');
+
+            document.querySelector('.menuImgDiv').classList.remove("height");
+            
+            tl
+                .to(".social-link", {opacity: 0, y: -50, duration: .5, ease: "power2.in"})
+                .to(".menuImg", { height: 0, duration: 1, ease: "power2.in",
+                    onComplete: () => {
+                        document.querySelector('.menuImg').classList.add("hide");
+                        gsap.to(".menuImg", { clearProps: "height" }) }}, "-=1")
+                .to("a.menu-link", { opacity: 0, y: -75, duration: .75, stagger: -.2, ease: "power2.in" }, "-=.5")
+                .to(".menu", { height: 0, duration: .5, ease: "power2.in",
+                    onComplete: () => {
+                    this.animIsRunning = !this.animIsRunning;
+                    document.querySelector('.hamburger').style.pointerEvents = "auto"
+                    this.isMenuActive = false;
+                }});
         }
     }
 })
@@ -138,6 +138,7 @@ export default ({
 
 .link, .social-link {
     cursor: pointer;
+    display: block;
 }
 
 .links {

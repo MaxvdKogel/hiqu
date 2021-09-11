@@ -15,9 +15,8 @@
             <div class="txt">
                 <h1 class="title fino anim parallax" data-rate="0">Quality interiors that make you <br> feel at home.</h1>
                 <p class="p bilo intro anim parallax" data-rate="0">
-                    Lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit. <br> Pellentesque blandit
-                    fermentum sapien non fringilla.
+                    Hiqu is a premium interior reseller offering a full range
+                    of interior design services since 1998.
                 </p>
                 <div class="cta fino anim parallax" data-rate="0">
                     <p class="ctaTxt" ref="ctaTxt">products</p>

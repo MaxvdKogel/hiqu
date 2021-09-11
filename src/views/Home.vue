@@ -3,16 +3,16 @@
     <fullscreenImg />
     <popularProducts />
     <newsletter />
-    <Footer />
+    <Footer bg-color="white"/>
 </template>
 
 <script>
 
-import landingPage from "@/components/Landing-page.vue";
-import fullscreenImg from "@/components/FullscreenImg.vue";
-import popularProducts from "@/components/PopularProducts.vue";
-import newsletter from "@/components/Newsletter.vue";
-import Footer from "@/components/Footer.vue";
+import landingPage from "@/components/Landing-page";
+import fullscreenImg from "@/components/FullscreenImg";
+import popularProducts from "@/components/PopularProducts";
+import newsletter from "@/components/Newsletter";
+import Footer from "@/components/Footer"
 
 export default {
 name: "Home",

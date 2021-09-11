@@ -1,5 +1,5 @@
 <template>
-    <footer>
+    <footer :style="cssProps">
         <div class="container">
             <p class="logo fino">Hiqu</p>
                 <div class="links bilo p">
@@ -25,17 +25,25 @@
 <script>
 
 export default ({
-    name: "Footer"
+    name: "Footer",
+    props: ['bgColor'],
+    computed: {
+        cssProps() {
+            return {
+                '--bg': this.bgColor
+            }
+        }
+    }
 });
 
 </script>
 
 <style scoped>
     footer {
-        background-color: white;
         width: 100%;
         display: flex;
         justify-content: center;
+        background-color: var(--bg);
     }
 
     .logo {

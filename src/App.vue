@@ -9,8 +9,8 @@ import Header from "./components/Header.vue";
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Menu from "@/components/Menu.vue";
+import Header from "@/components/Header";
+import Menu from "@/components/Menu";
 
 import gsap from 'gsap';
 
@@ -66,10 +66,6 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-}
-
-.disabled {
-    pointer-events: none;
 }
 
 .fino {
