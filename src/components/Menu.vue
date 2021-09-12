@@ -2,9 +2,6 @@
     <div class="menu">
         <div class="container" ref="menuContainer">
             <div class="links">
-                <!-- <h2 class="title link home hide">Home</h2>
-                <h2 class="title link hide">Products</h2>
-                <h2 class="title link hide">About us</h2> -->
                 <router-link to="/" exact class="title link hide menu-link home" @click="closeMenu()">Home</router-link>
                 <router-link to="/products" exact class="title link hide menu-link" @click="closeMenu()">Products</router-link>
                 <router-link to="/about" exact class="title link hide menu-link" @click="closeMenu()">About us</router-link>
@@ -49,6 +46,9 @@ export default ({
         isMenuActive: false,
         animIsRunning: false
     }),
+    mounted() {
+        this.resize();
+    },
     watch: {
         '$store.state.isMenuActive' : function() {
 
@@ -58,6 +58,9 @@ export default ({
             if (this.animIsRunning == false) {
 
                 if(this.isMenuActive) {
+                    this.$store.state.isBurgerActive = true;
+                    document.querySelector('.hamburger').classList.add('active');
+                    document.querySelector('body').style.overflowY = "hidden";
                     document.querySelector('.menuImg').classList.remove("hide");
                     document.querySelector('.menuImgDiv').classList.remove("hide");
 
@@ -84,8 +87,10 @@ export default ({
     },
     methods: {
         closeMenu() {
+            window.scrollTo(0,0);
             this.animIsRunning = !this.animIsRunning;
             document.querySelector('.hamburger').style.pointerEvents = "none";
+            document.querySelector('body').style.overflowY = "scroll";
             document.querySelector('.hamburger').classList.remove('active');
 
             document.querySelector('.menuImgDiv').classList.remove("height");
@@ -103,6 +108,14 @@ export default ({
                     document.querySelector('.hamburger').style.pointerEvents = "auto"
                     this.isMenuActive = false;
                 }});
+        },
+        resize() {
+            window.addEventListener('resize', () => {
+                gsap.to(".menuImg", { clearProps: "height" });
+                if(this.isMenuActive) {
+                    gsap.to(".menu", { height: window.innerHeight });
+                }
+            })
         }
     }
 })
@@ -258,7 +271,7 @@ svg {
     }
 
     .link + .link {
-        margin-top: 0.5em;
+        margin-top: 0.35em;
     }
 
     .social-link + .social-link {

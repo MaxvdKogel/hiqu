@@ -80,12 +80,12 @@ header {
   bottom: 0;
 }
 
-.hamburger.active .topLine{
+.active .topLine{
     transform: rotate(-45deg);
     top: 6px;
 }
 
-.hamburger.active .bottomLine{
+.active .bottomLine{
     transform: rotate(45deg);
     bottom: 6px;
 }
@@ -95,9 +95,9 @@ header {
         height: 14px;
     }
     
-  .topLine, .bottomLine {
-    height: 2px;
-  }
+    .topLine, .bottomLine {
+        height: 2px;
+    }
 
 }
 

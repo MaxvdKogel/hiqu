@@ -1,7 +1,7 @@
 import Header from "./components/Header.vue";
 
 <template>
-    <div id="app">
+    <div>
         <Header />
         <Menu />
     </div>
@@ -22,9 +22,11 @@ export default {
     },
     mounted() {
         window.addEventListener('scroll', this.inViewport);
+        window.addEventListener('scroll', this.parallax);
     },
     unmounted() {
         window.removeEventListener('scroll', this.inViewport);
+        window.removeEventListener('scroll', this.parallax);
     },
     methods: {
         inViewport() {
@@ -42,6 +44,14 @@ export default {
                     
                 }
             }
+        },
+        parallax() {
+            this.scrolled = window.pageYOffset;
+            const parallaxElement = document.querySelectorAll('.parallax');
+            for(var i = 0; i < parallaxElement.length; i++) {
+                var pos = this.scrolled * parallaxElement[i].dataset.rate;
+                parallaxElement[i].style.transform = 'translateY('+ pos +'px)';
+            }
         }
     }
 };
@@ -52,6 +62,15 @@ export default {
 html, body {
   height: 100%;
   width: 100%;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
 :root {
@@ -130,6 +149,11 @@ a {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.images {
+    position: relative;
+    overflow: hidden;
 }
 
 .img {

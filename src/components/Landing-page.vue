@@ -44,21 +44,6 @@ export default ({
             .from(".img-up", { height: 0, duration: 1, stagger: 0.2, clearProps: "height" })
             .from(".anim", {opacity: 0, y: 50, duration: .75, stagger: 0.15 }, "-=1")
             .from(this.$refs.ctaTxt, { opacity: 0, duration: .3 }, "-=0.45");
-
-            window.addEventListener('scroll', this.parallax);
-    },
-    unmounted() {
-        window.removeEventListener('scroll', this.parallax);
-    },
-    methods: {
-        parallax() {
-            this.scrolled = window.pageYOffset;
-            const parallaxElement = document.querySelectorAll('.parallax');
-            for(var i = 0; i < parallaxElement.length; i++) {
-                var pos = this.scrolled * parallaxElement[i].dataset.rate;
-                parallaxElement[i].style.transform = 'translateY('+ pos +'px)';
-            }
-        }
     }
 });
 
@@ -68,7 +53,8 @@ export default ({
 
     .landingPage {
         height: 100vh;
-        width: 100vw;
+        height: 100vh;
+        width: 100%;
         background-color: var(--background-light);
         width: 100%;
         display: flex;
@@ -83,7 +69,6 @@ export default ({
     }
 
     .images {
-        position: relative;
         height: 44vh;
         top: 10vh;
     }
