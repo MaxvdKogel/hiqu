@@ -3,7 +3,7 @@
         <div class="container header__container">
             <div class="nav">
                 <p class="logo fino opacity">Hiqu</p>
-                <div class="hamburger opacity" :class="{'active' : isBurgerActive }" @click.prevent="toggle">
+                <div class="hamburger opacity" :class="{'active' : this.$store.state.isBurgerActive }" @click.prevent="toggle">
                     <div class="topLine"></div>
                     <div class="bottomLine"></div>
                 </div>

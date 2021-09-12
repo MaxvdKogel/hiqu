@@ -2,7 +2,8 @@ import { createStore } from "vuex";
 
 export default createStore ({
     state: {
-        isMenuActive: false
+        isMenuActive: false,
+        isBurgerActive: false
     },
     mutations: {
         

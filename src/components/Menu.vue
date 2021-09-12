@@ -87,6 +87,7 @@ export default ({
     },
     methods: {
         closeMenu() {
+            this.$store.state.isBurgerActive = false;
             window.scrollTo(0,0);
             this.animIsRunning = !this.animIsRunning;
             document.querySelector('.hamburger').style.pointerEvents = "none";
