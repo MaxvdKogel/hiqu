@@ -100,14 +100,14 @@ export default {
         }
 
         .txt {
-            bottom: 15%;
+            bottom: 10%;
             width: 90%;
             padding: 0;
         }
 
         .p {
             margin: 25px 0 30px 0;
-            width: 75%;
+            width: 70%;
         }
     }
 
@@ -146,6 +146,10 @@ export default {
         .txt {
             width: 50%;
             bottom: auto;
+        }
+
+        .p {
+            width: 60%;
         }
     }
 </style>
