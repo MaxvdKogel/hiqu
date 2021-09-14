@@ -42,6 +42,9 @@
             this.$refs.slider.addEventListener("mousedown", this.mouseDown);
             document.addEventListener("mouseup", this.mouseUp);
             this.$refs.slider.addEventListener("mousemove", this.mouseMove)
+            this.$refs.slider.addEventListener("mouseenter", () => {
+                this.$refs.slider.style.cursor = 'grab';
+            })
         },
         unmounted(){
             document.removeEventListener("mouseup", this.mouseUp);
@@ -49,14 +52,19 @@
         methods: {
             mouseDown(e) {
                 this.isPressed = true;
-                this.startingPoint = e.offsetX - this.$refs.products.offsetLeft;
+                this.startingPoint = e.offsetX - this.$refs.products.offsetLeft + (window.innerWidth * 0.05);
+                if(window.innerWidth > 1300) {
+                    this.startingPoint = e.offsetX - this.$refs.products.offsetLeft + (1300 * 0.05);
+                }
             },
             mouseUp() {
                 if(this.isPressed) this.isPressed = false;
+                this.$refs.slider.style.cursor = 'grab';
             },
             mouseMove(e) {
                 if(this.isPressed) {
                     e.preventDefault();
+                    this.$refs.slider.style.cursor = "grabbing";
                     this.cursorX = e.offsetX;
                     this.$refs.products.style.left = `${this.cursorX - this.startingPoint}px`
                 }
