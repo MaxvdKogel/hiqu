@@ -91,6 +91,10 @@ header {
 }
 
 @media screen and (min-width: 600px) {
+
+    .hamburger {
+        height: 14px;
+    }
     
     .topLine, .bottomLine {
         height: 2px;
