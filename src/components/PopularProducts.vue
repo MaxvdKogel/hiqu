@@ -44,9 +44,7 @@
             this.$refs.slider.addEventListener("mousemove", this.mouseMove)
         },
         unmounted(){
-            this.$refs.slider.removeEventListener("mousedown", this.mouseDown);
             document.removeEventListener("mouseup", this.mouseUp);
-            this.$refs.slider.removeEventListener("mousemove", this.mouseMove);
         },
         methods: {
             mouseDown(e) {
