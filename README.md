@@ -1,24 +1,11 @@
 # hiqu
 
-## Project setup
-```
-npm install
-```
+This is a personal project, where I put my design and programming skills to the test.
+Some minor details aren't finished yet.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* Adobe XD
+* HTML
+* CSS
+* Javascript
+* VUEJS
+* GSAP3
