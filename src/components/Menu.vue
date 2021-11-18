@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="imgDiv menuImgDiv hide">
-                <img class="img menuImg" src="/assets/img/kamer-menu.jpg" alt="">
+                <img class="img menuImg" src="/hiqu/dist/assets/img/kamer-menu.jpg" alt="">
             </div>
         </div>
     </div>

@@ -3,10 +3,10 @@
         <div class="container">
             <div class="images">
                 <div class="img1 parallax" data-rate=".05">
-                    <img src="/assets/img/about/diningRoom.jpg" alt="" class="img">
+                    <img src="/hiqu/dist/assets/img/about/diningRoom.jpg" alt="" class="img">
                 </div>
                 <div class="img2 parallax" data-rate="-.05">
-                    <img src="/assets/img/about/kitchen.jpg" alt="" class="img">
+                    <img src="/hiqu/dist/assets/img/about/kitchen.jpg" alt="" class="img">
                 </div>
             </div>
             <div class="txt">

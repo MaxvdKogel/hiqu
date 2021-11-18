@@ -5,22 +5,22 @@
             <div class="slider" ref="slider">
                 <div class="products" ref="products">
                     <div class="product">
-                        <img class="img" src="assets/img/products/couch.jpg" alt="couch">
+                        <img class="img" src="/hiqu/dist/assets/img/products/couch.jpg" alt="couch">
                     </div>
                     <div class="product">
-                        <img class="img" src="assets/img/products/nightstand.jpg" alt="nightstand">
+                        <img class="img" src="/hiqu/dist/assets/img/products/nightstand.jpg" alt="nightstand">
                     </div>
                     <div class="product">
-                        <img class="img" src="assets/img/products/bed.jpg" alt="bed">
+                        <img class="img" src="/hiqu/dist/assets/img/products/bed.jpg" alt="bed">
                     </div>
                     <div class="product">
-                        <img class="img" src="assets/img/products/couch.jpg" alt="bed">
+                        <img class="img" src="/hiqu/dist/assets/img/products/couch.jpg" alt="bed">
                     </div>
                     <div class="product">
-                        <img class="img" src="assets/img/products/nightstand.jpg" alt="bed">
+                        <img class="img" src="/hiqu/dist/assets/img/products/nightstand.jpg" alt="bed">
                     </div>
                     <div class="product">
-                        <img class="img" src="assets/img/products/bed.jpg" alt="bed">
+                        <img class="img" src="/hiqu/dist/assets/img/products/bed.jpg" alt="bed">
                     </div>
                 </div>
             </div>

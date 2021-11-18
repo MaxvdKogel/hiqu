@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="imgDiv">
-            <img class="img" src="/assets/img/keuken.jpg" alt="">
+            <img class="img" src="/hiqu/dist/assets/img/keuken.jpg" alt="">
         </div>
     </div>
 </template>
