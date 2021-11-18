@@ -3,13 +3,13 @@
         <div class="container landingPage__container">
             <div class="images">
                 <div class="img1 parallax" data-rate="-0.05">
-                    <img class="img-up img" src="assets/img/kamer1.jpg" alt="">
+                    <img class="img-up img" src="/assets/img/kamer1.jpg" alt="">
                 </div>  
                 <div class="img2 parallax" data-rate=".1">
-                    <img class="img-up img" src="assets/img/kamer2.jpg" alt="">
+                    <img class="img-up img" src="/assets/img/kamer2.jpg" alt="">
                 </div>
                 <div class="img3 parallax" data-rate=".01">
-                    <img class="img-up img" src="assets/img/kamer3.jpg" alt="">
+                    <img class="img-up img" src="/assets/img/kamer3.jpg" alt="">
                 </div>
             </div>
             <div class="txt">
