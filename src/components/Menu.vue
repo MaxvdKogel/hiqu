@@ -2,7 +2,7 @@
     <div class="menu">
         <div class="container" ref="menuContainer">
             <div class="links">
-                <router-link to="/" exact class="title link hide menu-link home" @click="closeMenu()">Home</router-link>
+                <router-link to="/hiqu/dist" exact class="title link hide menu-link home" @click="closeMenu()">Home</router-link>
                 <router-link to="/products" exact class="title link hide menu-link" @click="closeMenu()">Products</router-link>
                 <router-link to="/about" exact class="title link hide menu-link" @click="closeMenu()">About us</router-link>
                 <div class="social-links">
