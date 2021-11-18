@@ -13,7 +13,7 @@
                         website or just want to see my work, visit my portfolio.
                     </p>
                 <div class="cta fino">
-                    <p class="ctaTxt">portfolio</p>
+                    <a class="ctaTxt" href="https://maxvanderkogel.com/">portfolio</a>
                 </div>
             </div>
        </div>
